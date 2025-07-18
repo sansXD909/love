@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi princesita</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .mensaje {
+      color: pink;
+      font-size: 3em;
+      text-align: center;
+      margin-top: 40vh;
+      cursor: pointer;
+      z-index: 2;
+      position: relative;
+    }
+
+    .corazon {
+      color: pink;
+      position: absolute;
+      top: -50px;
+      font-size: 1.5em;
+      animation: caer 10s linear infinite;
+      user-select: none;
+    }
+
+    @keyframes caer {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mensaje" onclick="window.location.href='flores.html'">Para mi princesita 💖</div>
+
+  <script>
+    // Generar corazones
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerText = "💗";
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 10000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+</body>
+</html>
